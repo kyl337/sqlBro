@@ -1,0 +1,19 @@
+def get_input():
+    table_name = input("Enter table name: ")
+    fields = input("Enter fields (separated by commas): ")
+    condition = input("Enter condition (leave blank if none): ")
+    return table_name, fields, condition
+
+def generate_query(table_name, fields, condition):
+    base_query = f"SELECT {fields} FROM {table_name}"
+    if condition:
+        base_query += f" WHERE {condition}"
+    return base_query
+
+def main():
+    table_name, fields, condition = get_input()
+    query = generate_query(table_name, fields, condition)
+    print("Generated SQL Query:", query)
+
+if __name__ == "__main__":
+    main()
